@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import { AppBar, Icon } from '@mui/material';
 
 function App() 
 {
@@ -16,8 +16,13 @@ function App()
   
   return (
     <div className="App">
+      <AppBar position='static'> 
+        <Icon></Icon>
+
+
+      </AppBar>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+       
         <ul>
           {activities.map((activity: any) => (
             <li key={activity.id}>
