@@ -35,5 +35,19 @@ namespace API.Controllers
             return Ok(await Mediator.Send(new Create.Command {Activity = activity}));
         }
 
+        [HttpPut("{id}")]
+
+        public async Task<IActionResult> EditActivity(Guid id, Activity activity)
+        {
+            /*The activity from the body of the request won't necessariliy contain
+             the correct ID, therefore we pass it the root parameter's ID before it is
+             sent to the handler */
+            activity.Id = id;
+
+            return Ok(await Mediator.Send(new Edit.Command{Activity = activity}));
+
+
+        }
+
     }
 }
