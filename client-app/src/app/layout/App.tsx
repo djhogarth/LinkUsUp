@@ -4,12 +4,13 @@ import { AppBar, Box, Icon, IconButton, List, ListItem, Toolbar, Typography} fro
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { spacing } from '@mui/system';
+import { Activity } from '../interfaces/activity';
 
 function App() {
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useState<Activity[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/activities').then(response => {
+    axios.get<Activity[]>('http://localhost:5000/api/activities').then(response => {
       setActivities(response.data);
     })
   }, [])
@@ -28,7 +29,7 @@ function App() {
       </Box>
 
       <List>
-        {activities.map((activity: any) => (
+        {activities.map(activity => (
           <ListItem key={activity.id}>
             {activity.title}
           </ListItem>
