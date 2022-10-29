@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import axios from 'axios';
 import { AppBar, Box, Icon, IconButton, List, ListItem, Toolbar, Typography} from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +10,6 @@ function App() {
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/activities').then(response => {
-      console.log(response);
       setActivities(response.data);
     })
   }, [])
