@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { spacing } from '@mui/system';
 import { Activity } from '../interfaces/activity';
+import NavBar from './NavBar';
 
 function App() {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -17,16 +18,7 @@ function App() {
 
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position='static' color='default'>
-          <Toolbar>
-            <IconButton color="inherit" sx={{mr: 1}}>
-              <FontAwesomeIcon icon={solid('users')} size='2x' />
-            </IconButton>            
-            <Typography variant="h3">LinkUsUp</Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <NavBar/>
 
       <List>
         {activities.map(activity => (
